@@ -49,7 +49,7 @@ portfolio/
 1. Clone the repository:
 ```bash
 git clone [https://github.com/sneakyturtle270508/My_Portfolio_v2.0.0]
-cd portfolio
+cd index.html
 ```
 
 2. Open `index.html` in your web browser or serve via a local server:
