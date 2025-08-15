@@ -28,14 +28,15 @@ portfolio/
 ├── test.html          # Navigation menu prototype
 ├── style.css          # Main stylesheet
 ├── script.js          # Interactive functionality
+├── README.md          # Project documentation
 ├── Pictures/          # Images and media files
 ├── accessibility.svg  # accessibility icon
 ├── adobe.svg          # adobe icon
 ├── css.svg            # css icon
 ├── html.svg           # html icon
 ├── javascript.svg     # javascript icon
-├── one.mp4            # project video nr 1
-└── README.md          # Project documentation
+└── one.mp4            # project video nr 1
+
 ```
 
 ## 🚀 Getting Started
