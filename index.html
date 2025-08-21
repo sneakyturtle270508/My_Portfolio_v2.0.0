@@ -2,7 +2,7 @@
   @Author: William Berge Groensberg
   @Date:   2025-05-25 00:15:28
   @Last Modified by:   William Berge Groensberg
-  @Last Modified time: 2025-08-15 00:18:28
+  @Last Modified time: 2025-08-21 20:56:45
 -->
 
 <!-- uses aos.js for animations -->
@@ -33,10 +33,8 @@
         <label for="menu-icon"></label>
         <nav class="nav"> 		
             <ul class="pt-5">
-                <li><a href="#">Work</a></li>
-                <li><a href="#">Studio</a></li>
-                <li><a href="#">News</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="#projects">MY WORK</a></li>
+                <li><a href="#aboutMe">ABOUT ME</a></li>
             </ul>
         </nav>
         
@@ -47,17 +45,74 @@
 
 
 
+
+    
     <header data-aos="fade-up" data-aos-once="true">
-      <div class="headerText">
-        <h1>Hello! <span>I'm William.👋</span></h1>
-        <p>
-Developer focused on crafting clean, functional, and user-friendly experiences, Lorem ipsum dolor 
-        </p> 
-        <p><span class="smallerText">Psst! My portfolio is a WIP so viewing on desktop is the best for now!</span></p>
-      </div>
-     <div class="imageContainer">
-        
-      </div>
+      <style> 
+    /* The @font-face rule is used to define a custom font that you want to use on your webpage. Here 'TheFont' is a name we give to reference the font later in CSS. The 'src' property specifies the path to the font file, and 'format' specifies the font format. */
+    @font-face {
+    font-family: 'TheFont';
+    
+    /* Variable fonts like the one linked below allow for fine-tuned control over various font properties dynamically via CSS, such as weight ('wght'), width ('wdth'), etc. This link is where your web browser will download the font from. */
+    /* Insert the link to your custom variable font */
+    src: url("https://garet.typeforward.com/assets/fonts/shared/TFMixVF.woff2")
+      format('woff2'); }
+
+
+  div.breathe-animation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Change the Background color of the entire screen */
+    background-color: rgb(255, 255, 255);
+    /* 'vw' is a viewport-width unit, 'vh' is a viewport-height unit. 1vw equals 1% of the width of the viewport, and 1vh equals 1% of the height of the viewport. This allows the font size to scale dynamically with the window size. */
+    height: 85vh;
+    
+  }
+
+  .breathe-animation span {
+    font-family: 'TheFont';
+  
+    /* The 'clamp()' function sets a flexible font size that will never go below a minimum value and never above a maximum value. The middle value is preferred, but it will shrink or grow based on the viewport dimensions. */
+    /* Adjusts font size based on content width and viewport height */
+    font-size: clamp(5vw, 10vw, 25vh);
+  
+    /* Change this to set the text color */
+    color: rgb(0, 0, 0);
+  
+    /* Center text horizontally */
+    text-align: center; 
+  
+    /* The 'animation' property applies the 'letter-breathe' keyframes to the element, making it animate over 3 seconds.'ease-in-out' makes the movement start and end slowly, and 'infinite' makes it repeat forever. */
+    /* Controls the animation (3s is the duration) */
+    animation: letter-breathe 3s ease-in-out infinite;
+}
+  
+  /* Keyframes define the sequence of styles that an element will go through during an animation. */
+  @keyframes letter-breathe {
+   
+    /* The 'from' and 'to' keyframes establish the initial and final states of the animation, respectively, using 'font-variation-settings'. This CSS property is used with variable fonts to adjust their weight ('wght'), width ('wdth'), etc., during the animation. */
+    from,
+    to {
+      /* Starting weight; adjust the numbers according to your specific font */
+      font-variation-settings: 'wght' 100;
+    }
+
+    /* At the midpoint (50%) of the animation, the font weight changes to 900. */
+    50% {
+      /* Ending weight; adjust the numbers according to your specific font */
+      font-variation-settings: 'wght' 900;
+    }
+  }
+    
+    
+  </style>
+</head>
+
+<div class="breathe-animation" class=" hideMobile">
+  <!-- Change this letter to test a different one -->
+  <span>William B. Groensberg</span>
+</div>
       
       <p class="scrollDownText"><i class="fas fa-angle-down"></i></p>
     </header>
@@ -92,10 +147,7 @@ Developer focused on crafting clean, functional, and user-friendly experiences, 
         </div>
 
         <div class="portfolioTwo" data-aos="fade-left" data-aos-once="true">
-          <video autoplay loop muted playsinline class="videoTwo">
-            <source src="https://sharon-yi.com/assets/two.mp4" type="video/mp4" />
-          </video>
-          <!-- <img src="assets/two.jpg" alt="" class="imageOne hideDesktop" /> -->
+          <img src="Picture/ChatGPT Image Aug 20, 2025, 03_12_53 PM.png" alt="" class="" />
 
           <div class="overlayTwo">
             <i class="fas fa-times fa-2x closeOverlayTwo hideDesktop"></i>
@@ -186,7 +238,79 @@ Developer focused on crafting clean, functional, and user-friendly experiences, 
       <div class="wrapper" data-aos="fade-up" data-aos-once="true">
         <div class="aboutMeTop">
           <div class="aboutMeBio">
-            <h2>About Me 💻</h2>
+            
+
+<style>
+  @font-face {
+    font-family: 'Inconsolata';
+    src: url('https://ggayane.github.io/css-experiments/Inconsolata-VF.ttf');
+    font-weight: 275 900;
+    font-stretch: 50% 200%;
+  }
+
+  #nam {
+    
+    
+    align-items: left;
+    
+    
+    color: rgb(39, 39, 39);
+    font-size: 8em;
+    font-family: 'Inconsolata';
+  }
+
+  
+
+  .static {
+    font-size: 30px;
+    font-variation-settings: "wght"900, "wdth"200;
+  }
+
+  .variable {
+    display: flex;
+    font-variation-settings: "wght"275, "wdth"50;
+    text-align: center;
+    animation: swapthings 3s infinite both cubic-bezier(0.17, 0.04, 0.04, 0.99);
+  }
+
+  .work {
+    animation: swapthings2 3s infinite both cubic-bezier(0.17, 0.04, 0.04, 0.99);
+  }
+
+
+  @keyframes swapthings {
+    0% {
+      font-variation-settings: "wght"275, "wdth"50;
+    }
+
+    50% {
+      font-variation-settings: "wght"900, "wdth"200;
+    }
+
+    100% {
+      font-variation-settings: "wght"275, "wdth"50;
+    }
+  }
+
+  @keyframes swapthings2 {
+    0% {
+      font-variation-settings: "wght"900, "wdth"200;
+    }
+
+    50% {
+      font-variation-settings: "wght"275, "wdth"50;
+    }
+
+    100% {
+      font-variation-settings: "wght"900, "wdth"200;
+    }
+  }</style>
+
+  <div class="variable" id="nam">
+    <span class="work" >About</span>Me
+  </div>
+
+
             <p>
               Hello again! Thanks for scrolling this far! 🤗 Hey, I’m William 👋 I create clean, well-designed projects
               using HTML, CSS, and JavaScript, while expanding my skills with PHP and Kotlin. I focus on
@@ -202,21 +326,27 @@ Developer focused on crafting clean, functional, and user-friendly experiences, 
             </p>
           </div>
           <div class="aboutMeImage">
-            <img src="assets/aboutMe.jpg" alt="" />
+            <img src="Picture/okokokok.JPG" alt="" />
           </div>
         </div>
         <div data-aos="fade-up" data-aos-once="true">
           <h2>My Toolkit 💻</h2>
           <ul class="skills">
 
-            <li><img src="adobe.svg" alt="" />Adobe Creative Cloud</li>
-            <li><img src="css.svg" alt="" />CSS 3</li>
-            <li><img src="html.svg" alt="" />HTML 5</li>
-            <li><img src="javascript.svg" alt="" />Javascript</li>
+            <li><img src="picture/adobe.svg" alt="" />Adobe Creative Cloud</li>
+            <li><img src="picture/css.svg" alt="" />CSS 3</li>
+            <li><img src="picture/html.svg" alt="" />HTML 5</li>
+            <li><img src="picture/javascript.svg" alt="" />Javascript</li>
           </ul>
         </div>
       </div>
     </section>
+    <head>
+
+<!-- Code snippet to create a "breathe" animation effect with a variable font -->
+  
+
+    
   </main>
 
 

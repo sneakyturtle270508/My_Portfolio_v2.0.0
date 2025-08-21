@@ -2,7 +2,7 @@
  * @Author: William Berge Groensberg
  * @Date:   2025-05-25 00:16:54
  * @Last Modified by:   William Berge Groensberg
- * @Last Modified time: 2025-08-15 00:17:37
+ * @Last Modified time: 2025-08-21 20:48:48
  */
 
 
@@ -326,14 +326,15 @@ header .headerText h1 span {
 header .headerText h1::after {
   content: "";
   position: absolute;
-  background-color: #ffe9e9;
-  -webkit-box-shadow: 0 0 8px #ffd6d6;
-          box-shadow: 0 0 8px #ffd6d6;
+  background-color: #c1e3f8;
+  -webkit-box-shadow: 0 0 8px #83c7fb;
+          box-shadow: 0 0 8px #83c7fb;
   height: 15px;
   left: 8px;
   bottom: 0;
   width: 100%;
   z-index: -1;
+  border-radius: 9px;
 }
 @media (min-width: 780px) {
   header .headerText h1::after {
@@ -389,7 +390,7 @@ header .fa-angle-down {
             transform: translateY(0);
   }
 }
-header p {
+header p{
   color: #696969;
   font-size: 2rem;
   font-weight: 400;
@@ -1293,7 +1294,7 @@ header p .smallerText {
     footer {
       width: 100%;
       position: relative;
-      background-color: #241bcd;
+      background-color: #788aab;
       margin: 0 auto;
       bottom: 0px;
       padding: 15px;
@@ -1562,3 +1563,6 @@ header p .smallerText {
 }
 
   
+figure, image{
+  width: 100%;
+}
