@@ -2,7 +2,7 @@
  * @Author: William Berge Groensberg
  * @Date:   2025-05-25 00:16:54
  * @Last Modified by:   William Berge Groensberg
- * @Last Modified time: 2025-08-21 20:48:48
+ * @Last Modified time: 2025-08-21 22:14:40
  */
 
 
@@ -47,6 +47,7 @@
 
     body {
       overflow-x: hidden;
+      
     }
 
     a:focus {
@@ -1415,7 +1416,7 @@ header p .smallerText {
   margin: 0;
   z-index: 9;
   overflow: hidden;
-  box-shadow: 0 8px 30px 0 rgba(0,0,0,0.3);
+  box-shadow: 0 8px 30px 0 rgba(0, 0, 0, 0.546);
   background-color: #353746;
   animation: border-transform 7s linear infinite;
   transition: top 350ms 1100ms cubic-bezier(0.23, 1, 0.32, 1),  
