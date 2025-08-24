@@ -1,0 +1,1005 @@
+<!-- 
+  @Author: William Berge Groensberg
+  @Date:   2025-05-25 00:15:28
+  @Last Modified by:   William Berge Groensberg
+  @Last Modified time: 2025-08-24 17:22:36
+-->
+
+<!-- uses aos.js for animations -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link href="favicon.ico?" rel="icon" type="image/x-icon" />
+  <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;700&family=Nanum+Pen+Script&display=swap"
+    rel="stylesheet">
+  <script src="https://kit.fontawesome.com/2a20f3910e.js" crossorigin="anonymous">
+  </script>
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<link rel="stylesheet" href="style.css">
+  
+  <title>Home</title>
+
+</head>
+
+<body>
+  <!-- menu-wrapper -->
+      
+        
+        <input class="menu-icon" type="checkbox" id="menu-icon" name="menu-icon"/>
+        <label for="menu-icon"></label>
+        <nav class="nav"> 		
+            <ul class="pt-5">
+                <li><a href="#projects">MY WORK</a></li>
+                <li><a href="#aboutMe">ABOUT ME</a></li>
+                <li><a onclick="HUB()">MY HUB</a></li>
+            </ul>
+        </nav>
+        
+       
+
+
+    <!-- end of menu -->
+
+
+
+
+    
+    <header data-aos="fade-up" data-aos-once="true">
+      <style> 
+    /* The @font-face rule is used to define a custom font that you want to use on your webpage. Here 'TheFont' is a name we give to reference the font later in CSS. The 'src' property specifies the path to the font file, and 'format' specifies the font format. */
+    @font-face {
+    font-family: 'TheFont';
+    
+    /* Variable fonts like the one linked below allow for fine-tuned control over various font properties dynamically via CSS, such as weight ('wght'), width ('wdth'), etc. This link is where your web browser will download the font from. */
+    /* Insert the link to your custom variable font */
+    src: url("https://garet.typeforward.com/assets/fonts/shared/TFMixVF.woff2")
+      format('woff2'); }
+
+
+  div.breathe-animation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Change the Background color of the entire screen */
+    background-color: rgb(255, 255, 255);
+    /* 'vw' is a viewport-width unit, 'vh' is a viewport-height unit. 1vw equals 1% of the width of the viewport, and 1vh equals 1% of the height of the viewport. This allows the font size to scale dynamically with the window size. */
+    height: 85vh;
+    overflow-x: hidden;
+  }
+
+  .breathe-animation span {
+    font-family: 'TheFont';
+  overflow-x: hidden;
+    /* The 'clamp()' function sets a flexible font size that will never go below a minimum value and never above a maximum value. The middle value is preferred, but it will shrink or grow based on the viewport dimensions. */
+    /* Adjusts font size based on content width and viewport height */
+    font-size: clamp(5vw, 10vw, 25vh);
+  
+    /* Change this to set the text color */
+    color: rgb(0, 0, 0);
+  
+    /* Center text horizontally */
+    text-align: center; 
+  
+    /* The 'animation' property applies the 'letter-breathe' keyframes to the element, making it animate over 3 seconds.'ease-in-out' makes the movement start and end slowly, and 'infinite' makes it repeat forever. */
+    /* Controls the animation (3s is the duration) */
+    animation: letter-breathe 3s ease-in-out infinite;
+}
+  
+  /* Keyframes define the sequence of styles that an element will go through during an animation. */
+  @keyframes letter-breathe {
+   
+    /* The 'from' and 'to' keyframes establish the initial and final states of the animation, respectively, using 'font-variation-settings'. This CSS property is used with variable fonts to adjust their weight ('wght'), width ('wdth'), etc., during the animation. */
+    from,
+    to {
+      /* Starting weight; adjust the numbers according to your specific font */
+      font-variation-settings: 'wght' 100;
+    }
+
+    /* At the midpoint (50%) of the animation, the font weight changes to 900. */
+    50% {
+      /* Ending weight; adjust the numbers according to your specific font */
+      font-variation-settings: 'wght' 900;
+    }
+  }
+    
+    
+  </style>
+</head>
+
+<div class="breathe-animation" class=" hideMobile">
+  <!-- Change this letter to test a different one -->
+  <span>William B. Groensberg</span>
+</div>
+      
+      <p class="scrollDownText"><i class="fas fa-angle-down"></i></p>
+    </header>
+  </div>
+  <main>
+    <p class="notesText hideMobile" data-aos="fade-up" data-aos-once="true">hover over any project to learn more!</p>
+    <p class="notesText hideDesktop" data-aos="fade-up" data-aos-once="true">click any project to learn more!</p>
+    <section class="portfolioProjects" id="projects" data-aos="fade-up" data-aos-once="true">
+      <div class="firstRow wrapper">
+        <div class="portfolioOne" data-aos="fade-right" data-aos-once="true">
+          <video autoplay loop muted playsinline class="videoOne">
+            <source src="Picture/one.mp4" type="video/mp4" />
+          </video>
+          <!-- <img src="assets/one.jpg" alt="" class="imageOne hideDesktop" /> -->
+          <div class="overlayOne">
+            <i class="fas fa-times fa-2x closeOverlayOne hideDesktop"></i>
+            <h3>Nerdy-cmd</h3>
+            <p>
+              An experimental CMD interface I created to transform my portfolio into a dynamic command-line experience, explore projects and details with simple, efficient commands.
+            </p>
+            <ul class="toolsUsed">
+              <li>Html</li>
+              <li>Css</li>
+              <li>JavaScript</li>
+            </ul>
+            <div class="viewProject">
+              <a href="../../pages/nerdy-cmd.html" target="_blank" class="button">Try it</a>
+              <a href="https://github.com/sneakyturtle270508/nerdy_cmd" target="_blank" class="button">github</a>
+            </div>
+          </div>
+          </a>
+        </div>
+
+        <div class="portfolioTwo" data-aos="fade-left" data-aos-once="true">
+          <img src="Picture/ChatGPT Image Aug 20, 2025, 03_12_53 PM.png" alt="" class="" />
+
+          <div class="overlayTwo">
+            <i class="fas fa-times fa-2x closeOverlayTwo hideDesktop"></i>
+
+            <h3>Into The Void</h3>
+            <p>
+              A javascript mini-game application where you are dodging
+              asteroids with your rocket!
+            </p>
+            <ul class="toolsUsed">
+              <li>HTML5</li>
+              <li>Javascript</li>
+              <li>jQuery</li>
+              <li>Sass</li>
+            </ul>
+            <ul class="viewProject">
+              <a href="https://sharon-yi.com/intoTheVoid/" target="_blank" class="button">view live</a>
+              <a href="https://github.com/sharon-yi/project3" target="_blank" class="button">github</a>
+            </ul>
+          </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="secondRow wrapper">
+        <div class="portfolioThree" data-aos="fade-right" data-aos-once="true">
+          <video autoplay loop muted playsinline class="videoThree">
+            <source src="https://sharon-yi.com/assets/three.mp4" type="video/mp4" />
+          </video>
+          <!-- <img src="assets/three.jpg" alt="" class="imageOne hideDesktop" /> -->
+
+          <div class="overlayThree">
+            <i class="fas fa-times fa-2x closeOverlayThree hideDesktop"></i>
+
+            <h3>Beeline</h3>
+            <p>
+              A web app that uses APIs and datasets to find the nearest
+              bike-share station to you and how many bikes/docks are
+              available.
+            </p>
+            <ul class="toolsUsed">
+              <li>APIs</li>
+              <li>HTML5</li>
+              <li>Javascript</li>
+              <li>jQuery</li>
+              <li>Sass</li>
+            </ul>
+            <ul class="viewProject">
+              <a href="https://sharon-yi.com/beeline/" target="_blank" class="button">view live</a>
+              <a href="https://github.com/sandyAndSharonProject4/sandyAndSharonProject4" target="_blank"
+                class="button">github</a>
+            </ul>
+          </div>
+          </a>
+        </div>
+
+        <div class="portfolioFour" data-aos="fade-left" data-aos-once="true">
+          <video autoplay loop muted playsinline class="videoFour">
+            <source src="https://sharon-yi.com/assets/four.mp4" type="video/mp4" />
+          </video>
+          <!-- <img src="assets/four.jpg" alt="" class="imageOne hideDesktop" /> -->
+
+          <div class="overlayFour">
+            <i class="fas fa-times fa-2x closeOverlayFour hideDesktop"></i>
+            <h3>Versus</h3>
+            <p>
+              A React app that allows users to create anonymous polls. Users
+              can vote and keep track of their polls.
+            </p>
+            <ul class="toolsUsed">
+              <li>Firebase</li>
+              <li>React</li>
+              <li>Sass</li>
+            </ul>
+            <ul class="viewProject">
+              <a href="https://anonvotingbooth.github.io/anonymousVotingBooth/" target="_blank" class="button">view
+                live</a>
+              <a href="https://github.com/anonVotingBooth/anonymousVotingBooth" target="_blank"
+                class="button">github</a>
+            </ul>
+          </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+
+
+
+    
+    <section class="aboutMe" id="aboutMe">
+      <div class="wrapper" data-aos="fade-up" data-aos-once="true">
+        <div class="aboutMeTop">
+          <div class="aboutMeBio">
+            
+
+<style>
+  @font-face {
+    font-family: 'Inconsolata';
+    src: url('https://ggayane.github.io/css-experiments/Inconsolata-VF.ttf');
+    font-weight: 275 900;
+    font-stretch: 50% 200%;
+  }
+
+  #nam {
+    overflow-x: hidden;
+    
+    align-items: left;
+    
+    
+    color: rgb(39, 39, 39);
+    font-size: 8em;
+    font-family: 'Inconsolata';
+  }
+
+  
+
+  .static {
+    font-size: 30px;
+    font-variation-settings: "wght"900, "wdth"200;
+  }
+
+  .variable {
+    display: flex;
+    font-variation-settings: "wght"275, "wdth"50;
+    text-align: center;
+    animation: swapthings 3s infinite both cubic-bezier(0.17, 0.04, 0.04, 0.99);
+  }
+
+  .work {
+    animation: swapthings2 3s infinite both cubic-bezier(0.17, 0.04, 0.04, 0.99);
+  }
+
+
+  @keyframes swapthings {
+    0% {
+      font-variation-settings: "wght"275, "wdth"50;
+    }
+
+    50% {
+      font-variation-settings: "wght"900, "wdth"200;
+    }
+
+    100% {
+      font-variation-settings: "wght"275, "wdth"50;
+    }
+  }
+
+  @keyframes swapthings2 {
+    0% {
+      font-variation-settings: "wght"900, "wdth"200;
+    }
+
+    50% {
+      font-variation-settings: "wght"275, "wdth"50;
+    }
+
+    100% {
+      font-variation-settings: "wght"900, "wdth"200;
+    }
+  }</style>
+
+  <div class="variable" id="nam">
+    <span class="work" >About</span>Me
+  </div>
+
+
+            <p>
+              Hello again! Thanks for scrolling this far! 🤗 Hey, I’m William 👋 I create clean, well-designed projects
+              using HTML, CSS, and JavaScript, while expanding my skills with PHP and Kotlin. I focus on
+              combining functionality with a polished look, and I’m driven by a constant goal to improve, learn, and
+              deliver work I’m proud of.
+
+            
+            </p>
+            <p>
+              I enjoy tackling challenges that push me to think creatively and strategically, whether it’s refining a
+              design detail or solving a tricky coding problem. My aim is to create work that not only meets
+              expectations but leaves a lasting impression.
+            </p>
+          </div>
+          <div class="aboutMeImage">
+            <!-- <img src="Picture/okokokok.JPG" alt="" /> -->
+          </div>
+        </div>
+        <div data-aos="fade-up" data-aos-once="true">
+          <h2>My Toolkit 💻</h2>
+          <ul class="skills">
+
+            <li><img src="picture/adobe.svg" alt="" />Adobe Creative Cloud</li>
+            <li><img src="picture/css.svg" alt="" />CSS 3</li>
+            <li><img src="picture/html.svg" alt="" />HTML 5</li>
+            <li><img src="picture/javascript.svg" alt="" />Javascript</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <head>
+
+<!-- Code snippet to create a "breathe" animation effect with a variable font -->
+  
+
+    
+  </main>
+
+
+  </div>
+  </div>
+
+  
+  </section>
+  <section>
+  </section>
+  <footer>
+    <p>Developed and designed by <a href="../../pages/nerdy-cmd.html">W</a>.B.G.</p>
+  </footer>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="script.js"></script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+</body>
+  <script>
+    
+    AOS.init();
+
+
+    
+    // made with chatgpt to make the animations and the menu toggle smooth and easy
+
+    // Wait for the document to be fully loaded
+
+
+    const sidebar = document.getElementById("sidebar");
+    const toggleButton = document.getElementById("menuToggle");
+    const menuItems = document.querySelectorAll(".menu-item");
+
+    toggleButton.addEventListener("click", () => {
+      const isOpen = sidebar.classList.contains("open");
+      sidebar.classList.toggle("open");
+
+      if (!isOpen) {
+        // Opening — slide in from right with delay wave
+        menuItems.forEach((item, i) => {
+          item.style.transitionDelay = `${i * 0.05}s`;
+          item.style.transform = 'translateX(0)';
+          item.style.opacity = '1';
+        });
+      } else {
+        // Closing — slide out to left with delay wave (reverse)
+        menuItems.forEach((item, i) => {
+          item.style.transitionDelay = `${(menuItems.length - i) * 0.05}s`;
+          item.style.transform = 'translateX(-100px)';
+          item.style.opacity = '0';
+        });
+      }
+    });
+
+
+function HUB() {
+    
+    document.body.innerHTML = `
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+
+    .hub-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: rgba(0, 0, 0, 0.03);
+      border-radius: 32px;
+      padding: 40px;
+      backdrop-filter: blur(10px);
+    }
+
+    .hub-title {
+      text-align: center;
+      font-size: 32px;
+      font-weight: 800;
+      color: rgba(87, 77, 51, 0.8);
+      margin-bottom: 40px;
+      letter-spacing: -0.5px;
+    }
+
+    .cards-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .brick-row {
+      display: flex;
+      gap: 20px;
+      width: 100%;
+    }
+
+    /* First pattern: wide (2/3) + narrow (1/3) */
+    .brick-row:nth-child(odd) .card:first-child {
+      flex: 2;
+      min-width: 0;
+    }
+
+    .brick-row:nth-child(odd) .card:last-child {
+      flex: 1;
+      min-width: 0;
+    }
+
+    /* Second pattern: narrow (1/3) + wide (2/3) */
+    .brick-row:nth-child(even) .card:first-child {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .brick-row:nth-child(even) .card:last-child {
+      flex: 2;
+      min-width: 0;
+    }
+
+    .card {
+      position: relative;
+      height: 180px;
+      padding: 25px;
+      background: radial-gradient(circle at 26% 106%, #FFF7B1 0%, rgba(255, 255, 255, 0) 72%), #FFFFFF;
+      box-shadow: 0 20px 25px rgba(0, 0, 0, 0.02), 0 10px 20px rgba(0, 0, 0, 0.04), 0 5px 15px rgba(0, 0, 0, 0.06);
+      border-radius: 23px;
+      transition: all 0.4s cubic-bezier(0.15, 0.83, 0.66, 1);
+      cursor: pointer;
+      overflow: hidden;
+    }
+
+    .card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 30px 40px rgba(0, 0, 0, 0.08), 0 15px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Weather Card Specific Styles */
+    .weather-card .container {
+      width: 200px;
+      height: 200px;
+      position: absolute;
+      right: -20px;
+      top: -30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: scale(0.6);
+    }
+
+    .sun, .cloud, .rain, .snow, .thunder {
+      position: absolute;
+      animation: floaty 6s infinite ease-in-out;
+    }
+
+    .sun {
+      width: 100px;
+      height: 100px;
+      background: linear-gradient(to right, #fcbb04, #fffc00);
+      border-radius: 50%;
+      z-index: 2;
+    }
+
+    .sunshine {
+      animation: sunshines 2s infinite;
+    }
+
+    .cloud span {
+      display: inline-block;
+      background-color: #4c9beb;
+      border-radius: 50%;
+    }
+
+    .front {
+      padding-top: 35px;
+      margin-left: 20px;
+      animation: clouds 8s infinite ease-in-out;
+    }
+
+    .back {
+      margin-top: -25px;
+      margin-left: 120px;
+      animation: clouds 12s infinite ease-in-out;
+    }
+
+    .left-front { width: 55px; height: 55px; border-radius: 50% 50% 0 50%; }
+    .right-front { width: 35px; height: 35px; border-radius: 50% 50% 50% 0%; margin-left: -20px; }
+    .left-back { width: 25px; height: 25px; border-radius: 50% 50% 0 50%; }
+    .right-back { width: 40px; height: 40px; border-radius: 50% 50% 50% 0%; margin-left: -15px; }
+
+    .rain::after {
+      content: "💧";
+      font-size: 30px;
+      animation: rainDrop 1s infinite linear;
+    }
+
+    .snow::after {
+      content: "❄️";
+      font-size: 30px;
+      animation: snowFall 2s infinite linear;
+    }
+
+    .thunder::after {
+      content: "⚡";
+      font-size: 40px;
+      color: #f5c518;
+      animation: thunderFlash 1.5s infinite ease-in-out;
+    }
+
+    .card-header {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .card-title {
+      font-weight: 800;
+      font-size: 16px;
+      color: rgba(87, 77, 51, 0.8);
+    }
+
+    .card-subtitle {
+      font-weight: 600;
+      font-size: 13px;
+      color: rgba(87, 77, 51, 0.5);
+    }
+
+    .card-main-content {
+      position: absolute;
+      left: 25px;
+      bottom: 15px;
+      font-weight: 700;
+      font-size: 48px;
+      color: rgba(87, 77, 51, 1);
+    }
+
+    .card-badge {
+      position: absolute;
+      right: 25px;
+      bottom: 20px;
+      background: rgba(0, 0, 0, 0.06);
+      border-radius: 12px;
+      padding: 8px 16px;
+      font-weight: 600;
+      font-size: 12px;
+      color: rgba(87, 77, 51, 0.7);
+    }
+
+    /* Different card themes */
+    .card.purple {
+      background: radial-gradient(circle at 26% 106%, #E8D8FF 0%, rgba(255, 255, 255, 0) 72%), #FFFFFF;
+    }
+
+    .card.blue {
+      background: radial-gradient(circle at 26% 106%, #D8EFFF 0%, rgba(255, 255, 255, 0) 72%), #FFFFFF;
+    }
+
+    .card.green {
+      background: radial-gradient(circle at 26% 106%, #D8FFE8 0%, rgba(255, 255, 255, 0) 72%), #FFFFFF;
+    }
+
+    .card.pink {
+      background: radial-gradient(circle at 26% 106%, #FFD8E8 0%, rgba(255, 255, 255, 0) 72%), #FFFFFF;
+    }
+
+    .card.orange {
+      background: radial-gradient(circle at 26% 106%, #FFE8D8 0%, rgba(255, 255, 255, 0) 72%), #FFFFFF;
+    }
+
+    /* Icon styles for other cards */
+    .card-icon {
+      position: absolute;
+      right: 25px;
+      top: 20px;
+      font-size: 40px;
+      opacity: 0.6;
+    }
+
+    /* Quick actions section */
+    .quick-actions {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .quick-action {
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 16px;
+      padding: 20px;
+      text-align: center;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: none;
+      font-family: inherit;
+    }
+
+    .quick-action:hover {
+      background: rgba(255, 255, 255, 1);
+      transform: translateY(-2px);
+    }
+
+    .quick-action-icon {
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+
+    .quick-action-text {
+      font-size: 12px;
+      font-weight: 600;
+      color: rgba(87, 77, 51, 0.8);
+    }
+
+    @keyframes sunshines {
+      0% { transform: scale(1); opacity: 0.6; }
+      100% { transform: scale(1.4); opacity: 0; }
+    }
+
+    @keyframes clouds {
+      0%, 100% { transform: translateX(10px); }
+      50% { transform: translateX(0); }
+    }
+
+    @keyframes floaty {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    @keyframes rainDrop {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(40px); opacity: 0; }
+    }
+
+    @keyframes snowFall {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(35px); opacity: 0; }
+    }
+
+    @keyframes thunderFlash {
+      0%, 100% { opacity: 0.2; }
+      50% { opacity: 1; }
+    }
+
+    @media (max-width: 1200px) {
+      .brick-row:nth-child(1),
+      .brick-row:nth-child(2),
+      .brick-row:nth-child(3),
+      .brick-row:nth-child(4),
+      .brick-row:nth-child(5) {
+        justify-content: center !important;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hub-container {
+        padding: 20px;
+      }
+      
+      .card {
+        width: 280px;
+      }
+      
+      .brick-row {
+        justify-content: center !important;
+        flex-wrap: wrap;
+      }
+      
+      .quick-actions {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .card {
+        width: 100%;
+        max-width: 320px;
+      }
+      
+      .brick-row {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="hub-container">
+    <h1 class="hub-title">Personal Hub</h1>
+    
+    <div class="cards-grid">
+      <!-- First Row - Left Side -->
+      <div class="brick-row">
+        <!-- Weather Card -->
+        <div class="card weather-card">
+          <div class="container" id="weather-icon">
+            <span class="sun sunshine"></span>
+            <span class="sun"></span>
+          </div>
+          <div class="card-header">
+            <div class="card-title" id="weather-location">---</div>
+            <div class="card-subtitle" id="weather-date">00. ---</div>
+          </div>
+          <div class="card-main-content" id="weather-temp">------</div>
+          <div class="card-badge">Celsius</div>
+        </div>
+
+        <!-- Time Card -->
+        <div class="card blue">
+          <div class="card-icon">🕐</div>
+          <div class="card-header">
+            <div class="card-title">Current Time</div>
+            <div class="card-subtitle" id="current-date">Sunday, August 24</div>
+          </div>
+          <div class="card-main-content" id="current-time">14:30</div>
+          <div class="card-badge">Local</div>
+        </div>
+      </div>
+
+      <!-- Second Row - Right Side -->
+      <div class="brick-row">
+        <!-- Tasks Card -->
+        <div class="card green">
+          <div class="card-icon">✅</div>
+          <div class="card-header">
+            <div class="card-title">Tasks Today</div>
+            <div class="card-subtitle">3 remaining</div>
+          </div>
+          <div class="card-main-content">5/8</div>
+          <div class="card-badge">Complete</div>
+        </div>
+
+        <!-- Messages Card -->
+        <div class="card purple">
+          <div class="card-icon">💬</div>
+          <div class="card-header">
+            <div class="card-title">Messages</div>
+            <div class="card-subtitle">2 unread</div>
+          </div>
+          <div class="card-main-content">12</div>
+          <div class="card-badge">Today</div>
+        </div>
+      </div>
+
+      <!-- Third Row - Left Side -->
+      <div class="brick-row">
+        <!-- Calendar Card -->
+        <div class="card pink">
+          <div class="card-icon">📅</div>
+          <div class="card-header">
+            <div class="card-title">Next Event</div>
+            <div class="card-subtitle">Team Meeting</div>
+          </div>
+          <div class="card-main-content">15:00</div>
+          <div class="card-badge">Today</div>
+        </div>
+
+        <!-- Music Card -->
+        <div class="card orange">
+          <div class="card-icon">🎵</div>
+          <div class="card-header">
+            <div class="card-title">Now Playing</div>
+            <div class="card-subtitle">Spotify</div>
+          </div>
+          <div class="card-main-content" style="font-size: 24px;">♪</div>
+          <div class="card-badge">Pause</div>
+        </div>
+      </div>
+
+      <!-- Fourth Row - Right Side -->
+      <div class="brick-row">
+        <!-- Notes Card -->
+        <div class="card blue">
+          <div class="card-icon">📝</div>
+          <div class="card-header">
+            <div class="card-title">Quick Notes</div>
+            <div class="card-subtitle">5 notes</div>
+          </div>
+          <a href="https://www.notion.so/im24wil/VG2-2ITKB-2144338486f28046b5f0f9666071595d">
+              <div class="card-main-content" style="font-size: 32px;">✎</div>
+
+  </a>
+
+          <div class="card-badge">Recent</div>
+        </div>
+
+        <!-- Health Card -->
+        <div class="card pink">
+          <div class="card-icon">❤️</div>
+          <div class="card-header">
+            <div class="card-title">Health</div>
+            <div class="card-subtitle">Steps today</div>
+          </div>
+          <div class="card-main-content" style="font-size: 28px;">8.2K</div>
+          <div class="card-badge">Goal: 10K</div>
+        </div>
+      </div>
+
+      <!-- Fifth Row - Left Side -->
+      <div class="brick-row">
+        <!-- Stats Card -->
+        <div class="card green">
+          <div class="card-icon">📈</div>
+          <div class="card-header">
+            <div class="card-title">Productivity</div>
+            <div class="card-subtitle">This week</div>
+          </div>
+          <div class="card-main-content">87%</div>
+          <div class="card-badge">Score</div>
+        </div>
+
+        <!-- Finance Card -->
+        <div class="card purple">
+          <div class="card-icon">💰</div>
+          <div class="card-header">
+            <div class="card-title">Expenses</div>
+            <div class="card-subtitle">This month</div>
+          </div>
+          <div class="card-main-content" style="font-size: 28px;">$2.4K</div>
+          <div class="card-badge">Budget</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="quick-actions">
+      <button class="quick-action">
+        <div class="quick-action-icon">🔗</div>
+        <div class="quick-action-text">Links</div>
+      </button>
+      <button class="quick-action">
+        <div class="quick-action-icon">📁</div>
+        <div class="quick-action-text">Files</div>
+      </button>
+      <button class="quick-action">
+        <div class="quick-action-icon">⚙️</div>
+        <div class="quick-action-text">Settings</div>
+      </button>
+      <button class="quick-action">
+        <div class="quick-action-icon">🌙</div>
+        <div class="quick-action-text">Dark Mode</div>
+      </button>
+      <button class="quick-action">
+        <div class="quick-action-icon">📊</div>
+        <div class="quick-action-text">Analytics</div>
+      </button>
+      <button class="quick-action">
+        <div class="quick-action-icon">🔔</div>
+        <div class="quick-action-text">Notifications</div>
+      </button>
+    </div>
+  </div>`
+
+}
+
+// Update current time
+    function updateTime() {
+      const now = new Date();
+      const timeString = now.toLocaleTimeString('en-GB', { 
+        hour: '2-digit', 
+        minute: '2-digit' 
+      });
+      const dateString = now.toLocaleDateString('en-GB', { 
+        weekday: 'long', 
+        day: 'numeric',
+        month: 'long'
+      });
+      
+      const timeElement = document.getElementById('current-time');
+      const dateElement = document.getElementById('current-date');
+      
+      if (timeElement) timeElement.textContent = timeString;
+      if (dateElement) dateElement.textContent = dateString;
+    }
+
+    // Update weather date
+    function updateWeatherDate() {
+      const now = new Date();
+      const dateString = now.toLocaleDateString('en-GB', { 
+        day: 'numeric',
+        month: 'long'
+      });
+      const weatherDateElement = document.getElementById('weather-date');
+      if (weatherDateElement) weatherDateElement.textContent = dateString;
+    }
+
+    // Simulate weather changes
+    function updateWeatherIcon() {
+      const weatherTypes = [
+        {
+          icon: '<span class="sun sunshine"></span><span class="sun"></span>',
+          temp: '22°'
+        },
+        {
+          icon: '<div class="cloud front"><span class="left-front"></span><span class="right-front"></span></div><div class="cloud back"><span class="left-back"></span><span class="right-back"></span></div>',
+          temp: '18°'
+        },
+        {
+          icon: '<span class="sun"></span><div class="cloud front"><span class="left-front"></span><span class="right-front"></span></div>',
+          temp: '20°'
+        }
+      ];
+      
+      const randomWeather = weatherTypes[Math.floor(Math.random() * weatherTypes.length)];
+      const weatherIconElement = document.getElementById('weather-icon');
+      const weatherTempElement = document.getElementById('weather-temp');
+      
+      if (weatherIconElement) weatherIconElement.innerHTML = randomWeather.icon;
+      if (weatherTempElement) weatherTempElement.textContent = randomWeather.temp;
+    }
+
+    // Add click handlers for cards with smooth scaling animation
+    document.addEventListener('DOMContentLoaded', function() {
+      const hubCards = document.querySelectorAll('.hub-card');
+      hubCards.forEach(card => {
+        card.addEventListener('click', () => {
+          card.style.transform = 'scale(0.98)';
+          setTimeout(() => {
+            card.style.transform = '';
+          }, 150);
+        });
+      });
+
+      // Add click handlers for quick actions
+      const quickActions = document.querySelectorAll('.quick-action');
+      quickActions.forEach(action => {
+        action.addEventListener('click', () => {
+          action.style.transform = 'translateY(-2px) scale(0.95)';
+          setTimeout(() => {
+            action.style.transform = '';
+          }, 150);
+        });
+      });
+
+      // Initialize
+      updateTime();
+      updateWeatherDate();
+      
+      // Update time every minute
+      setInterval(updateTime, 60000);
+      
+      // Change weather every 15 seconds for demo
+      setInterval(updateWeatherIcon, 15000);
+    });
+
+</script>
+
+</html>
