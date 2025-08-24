@@ -2,7 +2,7 @@
   @Author: William Berge Groensberg
   @Date:   2025-06-07 22:10:13
   @Last Modified by:   William Berge Groensberg
-  @Last Modified time: 2025-06-07 22:26:08
+  @Last Modified time: 2025-08-24 14:48:27
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -108,6 +108,16 @@
       animation: thunderFlash 1.5s infinite ease-in-out;
     }
 
+    .loading {
+      color: #666;
+      font-style: italic;
+    }
+
+    .error {
+      color: #e96269;
+      font-size: 12px;
+    }
+
     @keyframes sunshines {
       0% { transform: scale(1); opacity: 0.6; }
       100% { transform: scale(1.4); opacity: 0; }
@@ -192,78 +202,150 @@
     </div>
 
     <div class="card-header">
-      <span id="loc">Loading..</span>
+      <span id="loc">Loading...</span>
       <span id="date">---</span>
     </div>
 
     <span id="temp" class="temp">--</span>
 
     <div class="temp-scale">
-      <span>Celcius</span>
+      <span>Celsius</span>
     </div>
   </div>
 
   <script>
     const apiKey = 'b839cdaf5037e1863d3fa014c80399be';
-    const city = 'bodø';
 
-    async function fetchWeather() {
+    // Get user's current position
+    function getCurrentLocation() {
+      return new Promise((resolve, reject) => {
+        if (!navigator.geolocation) {
+          reject(new Error('Geolocation is not supported by this browser.'));
+          return;
+        }
+
+        navigator.geolocation.getCurrentPosition(
+          position => {
+            resolve({
+              lat: position.coords.latitude,
+              lon: position.coords.longitude
+            });
+          },
+          error => {
+            reject(new Error('Unable to retrieve your location: ' + error.message));
+          },
+          {
+            enableHighAccuracy: true,
+            timeout: 10000,
+            maximumAge: 300000 // 5 minutes
+          }
+        );
+      });
+    }
+
+    // Fetch weather by coordinates
+    async function fetchWeatherByCoords(lat, lon) {
+      try {
+        const res = await fetch(
+          `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`
+        );
+        
+        if (!res.ok) {
+          throw new Error(`Weather API error: ${res.status}`);
+        }
+        
+        return await res.json();
+      } catch (error) {
+        throw new Error('Failed to fetch weather data: ' + error.message);
+      }
+    }
+
+    // Fallback to a default city if geolocation fails
+    async function fetchWeatherByCity(city = 'Lysaker') {
       try {
         const res = await fetch(
           `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`
         );
-        const data = await res.json();
-
-        const temp = Math.round(data.main.temp);
-        const location = `${data.name}, ${data.sys.country}`;
-        const date = new Date().toLocaleDateString('en-GB', {
-          day: 'numeric',
-          month: 'long',
-        });
-
-        const weatherMain = data.weather[0].main.toLowerCase();
-        const container = document.getElementById('icon-container');
-
-        let iconHTML = '';
-
-        if (weatherMain.includes('cloud')) {
-          iconHTML = `
-            <div class="cloud front">
-              <span class="left-front"></span>
-              <span class="right-front"></span>
-            </div>
-            <div class="cloud back">
-              <span class="left-back"></span>
-              <span class="right-back"></span>
-            </div>`;
-        } else if (weatherMain.includes('rain')) {
-          iconHTML = `<div class="rain"></div>`;
-        } else if (weatherMain.includes('snow')) {
-          iconHTML = `<div class="snow"></div>`;
-        } else if (weatherMain.includes('thunder')) {
-          iconHTML = `<div class="thunder"></div>`;
-        } else if (weatherMain.includes('clear')) {
-          iconHTML = `<span class="sun sunshine"></span><span class="sun"></span>`;
-        } else {
-          // fallback: partly cloudy
-          iconHTML = `<span class="sun"></span>
-                      <div class="cloud front">
-                        <span class="left-front"></span>
-                        <span class="right-front"></span>
-                      </div>`;
+        
+        if (!res.ok) {
+          throw new Error(`Weather API error: ${res.status}`);
         }
-
-        container.innerHTML = iconHTML;
-        document.getElementById('temp').textContent = `${temp}°`;
-        document.getElementById('loc').textContent = location;
-        document.getElementById('date').textContent = date;
-
-      } catch (err) {
-        console.error('Kunne ikke hente værdata:', err);
-        document.getElementById('loc').textContent = 'Error loading weather';
+        
+        return await res.json();
+      } catch (error) {
+        throw new Error('Failed to fetch weather data: ' + error.message);
       }
     }
 
+    // Update the UI with weather data
+    function updateWeatherDisplay(data) {
+      const temp = Math.round(data.main.temp);
+      const location = `${data.name}, ${data.sys.country}`;
+      const date = new Date().toLocaleDateString('en-GB', {
+        day: 'numeric',
+        month: 'long',
+      });
+
+      const weatherMain = data.weather[0].main.toLowerCase();
+      const container = document.getElementById('icon-container');
+
+      let iconHTML = '';
+
+      if (weatherMain.includes('cloud')) {
+        iconHTML = `
+          <div class="cloud front">
+            <span class="left-front"></span>
+            <span class="right-front"></span>
+          </div>
+          <div class="cloud back">
+            <span class="left-back"></span>
+            <span class="right-back"></span>
+          </div>`;
+      } else if (weatherMain.includes('rain')) {
+        iconHTML = `<div class="rain"></div>`;
+      } else if (weatherMain.includes('snow')) {
+        iconHTML = `<div class="snow"></div>`;
+      } else if (weatherMain.includes('thunder')) {
+        iconHTML = `<div class="thunder"></div>`;
+      } else if (weatherMain.includes('clear')) {
+        iconHTML = `<span class="sun sunshine"></span><span class="sun"></span>`;
+      } else {
+        // fallback: partly cloudy
+        iconHTML = `<span class="sun"></span>
+                    <div class="cloud front">
+                      <span class="left-front"></span>
+                      <span class="right-front"></span>
+                    </div>`;
+      }
+
+      container.innerHTML = iconHTML;
+      document.getElementById('temp').textContent = `${temp}°`;
+      document.getElementById('loc').textContent = location;
+      document.getElementById('date').textContent = date;
+    }
+
+    // Main function to get weather
+    async function fetchWeather() {
+      try {
+        // Try to get user's current location first
+        try {
+          const coords = await getCurrentLocation();
+          const data = await fetchWeatherByCoords(coords.lat, coords.lon);
+          updateWeatherDisplay(data);
+        } catch (geoError) {
+          console.log('Geolocation failed, using fallback location:', geoError.message);
+          // Fallback to Lysaker (your location based on the prompt)
+          const data = await fetchWeatherByCity('Lysaker');
+          updateWeatherDisplay(data);
+        }
+      } catch (error) {
+        console.error('Weather fetch failed:', error);
+        document.getElementById('loc').innerHTML = '<span class="error">Weather unavailable</span>';
+        document.getElementById('temp').textContent = '--';
+      }
+    }
+
+    // Initialize
     fetchWeather();
   </script>
 </body>
